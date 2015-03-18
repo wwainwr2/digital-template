@@ -25,7 +25,7 @@
         // Create a sprite at the center of the screen using the 'logo' image.
         player = game.add.sprite( game.world.centerX, game.world.centerY, 'ship' );
 		background = game.add.tileSprite(0,0,800,600,'background');
-		land.fixedToCamera = true;
+		background.fixedToCamera = true;
         player.anchor.setTo( 0.5, 0.5 );
         
         // Turn on the arcade physics engine for this sprite.
