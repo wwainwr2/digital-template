@@ -78,7 +78,7 @@
 			game.physics.arcade.velocityFromRotation(player.rotation,currentSpeed,player.velocity);
 		}
 		background.tilePosition.x = -game.camera.x;
-		land.tilePosition.y = -game.camera.y;
+		background.tilePosition.y = -game.camera.y;
         //bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, this.game.input.activePointer, 500, 500, 500 );
     }
 	function playerHitEnemy(player, Enemy){
