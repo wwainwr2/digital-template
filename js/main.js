@@ -1,6 +1,6 @@
 Enemy = function(index,game,player){
 	var x = game.world.randomX;
-	var y = gmae.world.randomY;
+	var y = game.world.randomY;
 	this.game = game;
 	this.player = player;
 	this.virus =game.add.sprite(x,y,'virus');
@@ -14,12 +14,13 @@ Enemy = function(index,game,player){
         
         game.load.image( 'background', 'assets/background.png' );
 		game.load.image( 'ship', 'assets/ship.png' );
-		game.load.image( 'virus', 'assests/virus.png' );
+		game.load.image( 'virus', 'assets/virus.png' );
     }
     
     var player;
 	var enemies;
 	var NumberofEnemies = 10;
+	var cursors;
     
     function create() {
         // Create a sprite at the center of the screen using the 'logo' image.
