@@ -5,7 +5,7 @@ Enemy = function(index,game,player){
 	this.player = player;
 	this.virus =game.add.sprite(x,y,'virus');
 	this.virus.anchor.set(0.5,0.5);
-	game.physics.enable(this.enemy,Phaser.Pysics.ARCADE);
+	game.physics.enable(this.enemy,Phaser.Physics.ARCADE);
 }
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
