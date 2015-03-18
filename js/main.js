@@ -70,4 +70,4 @@ Enemy = function(index,game,player){
 	function playerHitEnemy(player, Enemy){
 		enemies[Enemy.name].kill();
 	}
-};
+
