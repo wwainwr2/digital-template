@@ -1,12 +1,4 @@
-Enemy = function(index,game,player){
-	var x = game.world.randomX;
-	var y = game.world.randomY;
-	this.game = game;
-	this.player = player;
-	this.virus =game.add.sprite(x,y,'virus');
-	this.virus.anchor.set(0.5,0.5);
-	
-}
+
     
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
@@ -21,22 +13,36 @@ Enemy = function(index,game,player){
 	var enemies;
 	var NumberofEnemies = 10;
 	var cursors;
+	var enemy1;
+	var enemy3;
+	var enemy2;
+	var enemy4;
+	var enemy5;
     
     function create() {
         // Create a sprite at the center of the screen using the 'logo' image.
         player = game.add.sprite( game.world.centerX, game.world.centerY, 'ship' );
- 
+		
         player.anchor.setTo( 0.5, 0.5 );
         
         // Turn on the arcade physics engine for this sprite.
         game.physics.enable( player, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
         player.body.collideWorldBounds = true;
-        enemies = [];
-		for(var i = 0;i<NumberofEnemies;i++)
-		{
-			enemies.push(new Enemy(i,game,player));
-		}
+        enemy1 = game.add.sprite(game.world.randomX,game.world.randomY,'virus');
+		game.physics.enable(enemy1, Phaser.Physics.ARCADE);
+		
+		enemy2 = game.add.sprite(game.world.randomX,game.world.randomY,'virus');
+		game.physics.enable(enemy2, Phaser.Physics.ARCADE);
+		
+		enemy3 = game.add.sprite(game.world.randomX,game.world.randomY,'virus');
+		game.physics.enable(enemy3, Phaser.Physics.ARCADE);
+		
+		enemy4 = game.add.sprite(game.world.randomX,game.world.randomY,'virus');
+		game.physics.enable(enemy4, Phaser.Physics.ARCADE);
+		
+		enemy5 = game.add.sprite(game.world.randomX,game.world.randomY,'virus');
+		game.physics.enable(enemy5, Phaser.Physics.ARCADE);
 		cursors = game.input.keyboard.createCursorKeys();
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
