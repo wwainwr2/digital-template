@@ -18,6 +18,7 @@
 	var enemy2;
 	var enemy4;
 	var enemy5;
+	var currentSpeed = 0;
     
     function create() {
         // Create a sprite at the center of the screen using the 'logo' image.
@@ -69,6 +70,10 @@
 			{
 				currentSpeed -= 4;
 			}
+		}
+		if(currentSpeed > 0)
+		{
+			game.physics.arcade.velocityFromRotation(player.rotation,currentSpeed,player.velocity);
 		}
 		background.tilePosition.x = -game.camera.x;
 		land.tilePosition.y = -game.camera.y;
