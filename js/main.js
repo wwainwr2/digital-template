@@ -236,7 +236,7 @@ function enemyHitsPlayer (player,bullet) {
         player.kill();
         enemyBullets.callAll('kill');
 
-        stateText.text=" GAME OVER \n Click to restart";
+        stateText.text=" GAME OVER THE BODY IS OVERRUN \n Click to restart";
         stateText.visible = true;
 
         //the "click to restart" handler
