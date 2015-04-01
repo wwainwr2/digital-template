@@ -69,7 +69,7 @@ function create() {
     createAliens();
 
     //  The score
-    scoreString = 'Score : ';
+    scoreString = 'Body Restored : ';
     scoreText = game.add.text(10, 10, scoreString + score, { font: '34px Arial', fill: '#fff' });
 
     //  Lives
@@ -81,7 +81,7 @@ function create() {
     stateText.anchor.setTo(0.5, 0.5);
     stateText.visible = false;
 
-    for (var i = 0; i < 3; i++) 
+    for (var i = 0; i < 1; i++) 
     {
         var ship = lives.create(game.world.width - 100 + (30 * i), 60, 'ship');
         ship.anchor.setTo(0.5, 0.5);
