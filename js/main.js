@@ -3,9 +3,9 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 function preload() {
 
     game.load.image('bullet', 'assets/bullet.png');
-    game.load.image('enemyBullet', 'assets/enemy-bullet.png');
+    game.load.image('enemyBullet', 'assets/bullet.png');
     game.load.spritesheet('invader', 'assets/invader32x32x4.png', 32, 32);
-    game.load.image('ship', 'assets/player.png');
+    game.load.image('ship', 'assets/ship.png');
     game.load.spritesheet('kaboom', 'assets/explode.png', 128, 128);
     game.load.image('starfield', 'assets/field.png');
     game.load.image('background', 'assets/background2.png');
@@ -236,7 +236,7 @@ function enemyHitsPlayer (player,bullet) {
         player.kill();
         enemyBullets.callAll('kill');
 
-        stateText.text=" GAME OVER THE BODY IS OVERRUN \n Click to restart";
+        stateText.text=" The President\n is Dead \n Click to restart";
         stateText.visible = true;
 
         //the "click to restart" handler
