@@ -4,7 +4,7 @@ function preload() {
 
     game.load.image('bullet', 'assets/bullet.png');
     game.load.image('enemyBullet', 'assets/bullet.png');
-    game.load.spritesheet('invader', 'assets/invader32x32x4.png', 32, 32);
+    game.load.spritesheet('invader', 'assets/test.png', 32, 32);
     game.load.image('ship', 'assets/ship.png');
     game.load.spritesheet('kaboom', 'assets/explode.png', 128, 128);
     game.load.image('starfield', 'assets/field.png');
@@ -205,7 +205,7 @@ function collisionHandler (bullet, alien) {
         scoreText.text = scoreString + score;
 
         enemyBullets.callAll('kill',this);
-        stateText.text = " You Won, \n Click to restart";
+        stateText.text = " The President\nIs Saved!!\n Click to restart";
         stateText.visible = true;
 
         //the "click to restart" handler
