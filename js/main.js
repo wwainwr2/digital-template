@@ -75,17 +75,9 @@ function createAliens() {
             var star = stars.create(x, y, 'star');
             star.anchor.setTo(0.5, 0.5);
             star.body.moves = false;
-			game.physics.enable(star, Phaser.Physics.ARCADE);
     
 }
 
-function setupInvader (invader) {
-
-    invader.anchor.x = 0.5;
-    invader.anchor.y = 0.5;
-    invader.animations.add('kaboom');
-
-}
 
 function descend() {
 
@@ -120,11 +112,11 @@ function update() {
 			player.body.velocity.y = 200;
 		}
  
-        
+		if(pl
 
         
 
-        game.physics.arcade.overlap(player, star, PlayerHitStar, null, this);
+        game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
     }
 
 }
