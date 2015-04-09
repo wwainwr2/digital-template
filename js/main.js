@@ -123,20 +123,12 @@ function update() {
 			player.body.velocity.y = 200;
 		}
  
-		accelerateToObject(enemies,player,100);
+		enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         
 		game.physics.arcade.overlap(player, enemies, EnemyHitPlayer,null,this);
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
     }
 
-}
-
-function accelerateToObject(obj1, obj2, speed) {
-    if (typeof speed === 'undefined') { speed = 60; }
-    var angle = Math.atan2(obj2.y - obj1.y, obj2.x - obj1.x);
-    obj1.body.rotation = angle + game.math.degToRad(90);  // correct angle of angry bullets (depends on the sprite used)
-    obj1.body.force.x = Math.cos(angle) * speed;    // accelerateToObject 
-    obj1.body.force.y = Math.sin(angle) * speed;
 }
 
 function render() {
