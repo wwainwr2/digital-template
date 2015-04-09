@@ -112,14 +112,10 @@ function update() {
 			player.body.velocity.y = 200;
 		}
  
-		if(pl
 
         
 
-        if(game.physics.arcade.overlap(player, star)
-		{
-			PlayerHitStar(player,star);
-		}
+       PlayerHitStar(player,star);
     }
 
 }
