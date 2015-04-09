@@ -126,19 +126,7 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         
 		//game.physics.arcade.overlap(player, enemies, EnemyHitPlayer,null,this);
-		var x = this.game.rnd.integerInRange(0,4);
-		if(x == 0){
-			enemies.body.velocity.x = 100;
-		}
-		else if(x == 1){
-			enemies.body.velocity.x = -100;
-		}
-		else if(x == 2){
-			enemies.body.velocity.y = 100;
-		}
-		else if(x == 3){
-			enemies.body.velocity.y = -100;
-		}
+	
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
     }
