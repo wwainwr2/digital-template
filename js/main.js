@@ -123,7 +123,7 @@ function update() {
 			player.body.velocity.y = 200;
 		}
  
-		game.physics.accelerateToObject(enemies,player,100);
+		accelerateToObject(enemies,player,100);
         
 		game.physics.arcade.overlap(player, enemies, EnemyHitPlayer,null,this);
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
