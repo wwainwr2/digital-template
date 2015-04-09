@@ -116,7 +116,10 @@ function update() {
 
         
 
-        game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
+        if(game.physics.arcade.overlap(player, star)
+		{
+			PlayerHitStar(player,star);
+		}
     }
 
 }
