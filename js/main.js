@@ -11,7 +11,7 @@ function preload() {
 }
 
 var player;
-var aliens;
+var star;
 var bullets;
 var bulletTime = 0;
 var cursors;
