@@ -70,8 +70,8 @@ function create() {
 }
 
 function createAliens() {
-			var x = between(0, 500);
-			var y = between(0, 600);
+			var x = this.game.rnd.integerInRange(0,600);
+			var y = this.game.rnd.integerInRange(0,600);
             var star = stars.create(x, y, 'star');
             star.anchor.setTo(0.5, 0.5);
             star.body.moves = false;
