@@ -7,21 +7,22 @@ function preload() {
     game.load.image('player', 'assets/ship.png');
     game.load.image('starfield', 'assets/background.png');
     game.load.image('background', 'assets/background.png');
+	game.load.image('enemy','assets/enemy.png');
 
 }
 
 var player;
 var star;
 var stars;
-var bulletTime = 0;
+
 var cursors;
-var fireButton;
-var explosions;
+
+
 var starfield;
 var score = 0;
 var scoreString = '';
 var scoreText;
-var lives;
+var enemies;
 var enemyBullet;
 var firingTimer = 0;
 var stateText;
@@ -37,7 +38,9 @@ function create() {
     
 
     
-
+	// enemies
+	enemies.add.group();
+	
     //  The hero!
     player = game.add.sprite(400, 500, 'player');
     player.anchor.setTo(0.5, 0.5);
@@ -78,6 +81,12 @@ function createAliens() {
     
 }
 
+function createEnemies(){
+	var x = this.game.rnd.integerInRange(0,600);
+	var y = this.game.rnd.integerInRange(0,600);
+	var enemy = enemies.create(x,y,'enemy');
+	enemy.anchor.setTo(0.5,0.5);
+}
 
 function descend() {
 
@@ -112,9 +121,9 @@ function update() {
 			player.body.velocity.y = 200;
 		}
  
-
+		accelerateToObject(enemies,player,100,100,100);
         
-
+		game.physics.arcade.overlap(player, enemies, EnemyHitPlayer,null,this);
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
     }
 
@@ -149,4 +158,7 @@ function PlayerHitStar (player, star) {
         createAliens();
     }
 
+}
+function EnemyHitPlayer(player,enemy){
+		player.kill();
 }
