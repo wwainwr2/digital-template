@@ -12,7 +12,7 @@ function preload() {
 
 var player;
 var star;
-var bullets;
+var stars;
 var bulletTime = 0;
 var cursors;
 var fireButton;
