@@ -39,7 +39,9 @@ function create() {
 
     
 	// enemies
-	enemies.add.group();
+	enemies = game.add.group();
+	enemies.enableBody = true;
+	enemies.physicsBodyType = Phaser.Physics.ARCADE;
 	
     //  The hero!
     player = game.add.sprite(400, 500, 'player');
