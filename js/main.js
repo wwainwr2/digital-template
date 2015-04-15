@@ -23,6 +23,7 @@ var score = 0;
 var scoreString = '';
 var scoreText;
 var enemies;
+var ememy;
 var enemyBullet;
 var firingTimer = 0;
 var stateText;
@@ -38,7 +39,7 @@ function create() {
     
 
     
-	// enemies
+	
 	//enemies = game.add.group();
 	//enemies.enableBody = true;
 	//enemies.physicsBodyType = Phaser.Physics.ARCADE;
@@ -144,9 +145,9 @@ function render() {
 	//player.kill();
 //}
 
-function moveEnemies(enemy){
+//function moveEnemies(enemy){
 	accelerateToObject(enemy,player,100);
-}
+//}
 
 function PlayerHitStar (player, star) {
 
