@@ -123,7 +123,7 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         
 		
-		enemies.forEachAlive(game.physics.accelerateToObject(enemies,player,100,100,100),this);
+		enemies.forEachAlive(moveEnemies(enemy){this.accelerateToObject(enemy,player,100,100,100);},game.physics);
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
 		game.physics.arcade.overlap(player, enemies, PlayerHitEnemy, null, this);
@@ -145,9 +145,9 @@ function PlayerHitEnemy(player, enemey){
 	player.kill();
 }
 
-function moveEnemies(enemy){
-	accelerateToObject(enemy,player,100);
-}
+//function moveEnemies(enemy){
+	//this.accelerateToObject(enemy,player,100,100,100);
+//}
 
 function PlayerHitStar (player, star) {
 
