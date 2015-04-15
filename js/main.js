@@ -22,7 +22,7 @@ var starfield;
 var score = 0;
 var scoreString = '';
 var scoreText;
-var enemy;
+var enemies;
 var enemyBullet;
 var firingTimer = 0;
 var stateText;
@@ -83,12 +83,12 @@ function createStars() {
     
 }
 
-function createEnemies(){
-	var x = this.game.rnd.integerInRange(0,600);
-	var y = this.game.rnd.integerInRange(0,600);
-	var enemy = enemies.create(x,y,'enemy');
-	enemy.anchor.setTo(0.5,0.5);
-}
+//function createEnemies(){
+	//var x = this.game.rnd.integerInRange(0,600);
+	//var y = this.game.rnd.integerInRange(0,600);
+	//var enemy = enemies.create(x,y,'enemy');
+	//enemy.anchor.setTo(0.5,0.5);
+//}
 
 
 
