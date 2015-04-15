@@ -116,8 +116,9 @@ function update() {
 		}
  
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
-        
-		game.physics.arcade.accelerateToXY(enemy, this.player.x, this.player.y);
+        var x = player.x;
+		var y = player.y;
+		game.physics.arcade.accelerateToXY(enemy, x, y);
 		
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
