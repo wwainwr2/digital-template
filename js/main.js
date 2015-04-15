@@ -90,11 +90,7 @@ function createEnemies(){
 	enemy.anchor.setTo(0.5,0.5);
 }
 
-function descend() {
 
-    aliens.y += 10;
-
-}
 
 function update() {
 
@@ -144,9 +140,9 @@ function render() {
 }
 
 
-function PlayerHitEnemy(player, enemey){
-	player.kill();
-}
+//function PlayerHitEnemy(player, enemey){
+	//player.kill();
+//}
 
 function moveEnemies(enemy){
 	accelerateToObject(enemy,player,100);
@@ -168,6 +164,4 @@ function PlayerHitStar (player, star) {
     }
 
 }
-function EnemyHitPlayer(player,enemy){
-		player.kill();
-}
+
