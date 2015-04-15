@@ -39,9 +39,9 @@ function create() {
 
     
 	// enemies
-	enemies = game.add.group();
-	enemies.enableBody = true;
-	enemies.physicsBodyType = Phaser.Physics.ARCADE;
+	//enemies = game.add.group();
+	//enemies.enableBody = true;
+	//enemies.physicsBodyType = Phaser.Physics.ARCADE;
 	
     //  The hero!
     player = game.add.sprite(400, 500, 'player');
@@ -129,7 +129,7 @@ function update() {
 		//enemies.forEachAlive(moveEnemies,this);
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
-		game.physics.arcade.overlap(player, enemies, PlayerHitEnemy, null, this);
+		//game.physics.arcade.overlap(player, enemies, PlayerHitEnemy, null, this);
     }
 
 }
