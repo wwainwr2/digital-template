@@ -40,9 +40,9 @@ function create() {
 
     
 	
-	//enemies = game.add.group();
-	//enemies.enableBody = true;
-	//enemies.physicsBodyType = Phaser.Physics.ARCADE;
+	enemies = game.add.group();
+	enemies.enableBody = true;
+	enemies.physicsBodyType = Phaser.Physics.ARCADE;
 	
     //  The hero!
     player = game.add.sprite(400, 500, 'player');
@@ -68,7 +68,7 @@ function create() {
 
   
 
-    
+    createEnemies();
 
     //  And some controls to play the game with
     cursors = game.input.keyboard.createCursorKeys();
@@ -84,12 +84,12 @@ function createStars() {
     
 }
 
-//function createEnemies(){
-	//var x = this.game.rnd.integerInRange(0,600);
-	//var y = this.game.rnd.integerInRange(0,600);
-	//var enemy = enemies.create(x,y,'enemy');
-	//enemy.anchor.setTo(0.5,0.5);
-//}
+function createEnemies(){
+	var x = this.game.rnd.integerInRange(0,600);
+	var y = this.game.rnd.integerInRange(0,600);
+	var enemy = enemies.create(x,y,'enemy');
+	enemy.anchor.setTo(0.5,0.5);
+}
 
 
 
@@ -122,11 +122,11 @@ function update() {
  
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         
-		//game.physics.arcade.overlap(player, enemies, EnemyHitPlayer,null,this);
-		//enemies.forEachAlive(moveEnemies,this);
+		
+		enemies.forEachAlive(moveEnemies,this);
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
-		//game.physics.arcade.overlap(player, enemies, PlayerHitEnemy, null, this);
+		game.physics.arcade.overlap(player, enemies, PlayerHitEnemy, null, this);
     }
 
 }
@@ -141,13 +141,13 @@ function render() {
 }
 
 
-//function PlayerHitEnemy(player, enemey){
-	//player.kill();
-//}
+function PlayerHitEnemy(player, enemey){
+	player.kill();
+}
 
-//function moveEnemies(enemy){
-	//accelerateToObject(enemy,player,100);
-//}
+function moveEnemies(enemy){
+	accelerateToObject(enemy,player,100);
+}
 
 function PlayerHitStar (player, star) {
 
