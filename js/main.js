@@ -146,7 +146,7 @@ function render() {
 //}
 
 //function moveEnemies(enemy){
-	accelerateToObject(enemy,player,100);
+	//accelerateToObject(enemy,player,100);
 //}
 
 function PlayerHitStar (player, star) {
