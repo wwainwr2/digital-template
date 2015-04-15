@@ -5,7 +5,7 @@ function preload() {
     
     game.load.image('star', 'assets/star.png', 32, 32);
     game.load.image('player', 'assets/ship.png');
-    game.load.image('starfield', 'assets/background.png');
+    game.load.image('starfield', 'assets/background2.png');
     game.load.image('background', 'assets/background.png');
 	game.load.image('enemy','assets/enemy.png');
 
