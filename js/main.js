@@ -22,7 +22,7 @@ var starfield;
 var score = 0;
 var scoreString = '';
 var scoreText;
-var enemies;
+var enemy;
 var enemyBullet;
 var firingTimer = 0;
 var stateText;
@@ -48,12 +48,12 @@ function create() {
     player.anchor.setTo(0.5, 0.5);
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
-    //  The baddies!
+    //  The items!
     stars = game.add.group();
     stars.enableBody = true;
     stars.physicsBodyType = Phaser.Physics.ARCADE;
 
-    createAliens();
+    createStars();
 
     //  The score
     scoreString = 'Score: ';
@@ -74,7 +74,7 @@ function create() {
     
 }
 
-function createAliens() {
+function createStars() {
 			var x = this.game.rnd.integerInRange(0,600);
 			var y = this.game.rnd.integerInRange(0,600);
             var star = stars.create(x, y, 'star');
@@ -126,9 +126,10 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         
 		//game.physics.arcade.overlap(player, enemies, EnemyHitPlayer,null,this);
-	
+		enemies.forEachAlive(moveEnemies,this);
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
+		game.physics.arcade.overlap(player, enemies, PlayerHitEnemy, null, this);
     }
 
 }
@@ -143,9 +144,13 @@ function render() {
 }
 
 
+function PlayerHitEnemy(player, enemey){
+	player.kill();
+}
 
-
-
+function moveEnemies(enemy){
+	accelerateToObject(enemy,player,100);
+}
 
 function PlayerHitStar (player, star) {
 
@@ -159,7 +164,7 @@ function PlayerHitStar (player, star) {
 
     if (stars.countLiving() == 0)
     {
-        createAliens();
+        createStars();
     }
 
 }
