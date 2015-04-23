@@ -8,6 +8,7 @@ function preload() {
     game.load.image('starfield', 'assets/background2.png');
     game.load.image('background', 'assets/background.png');
 	game.load.image('enemy','assets/enemy.png');
+	game.load.image('bullet', 'assets/bullet.png');
 
 }
 
@@ -16,8 +17,9 @@ var star;
 var stars;
 
 var cursors;
-
-
+var fireButton;
+var bullets;
+var bulletTime = 0;
 var starfield;
 var score = 0;
 var scoreString = '';
@@ -38,7 +40,14 @@ function create() {
 
     
 
-    
+    bullets = game.add.group();
+    bullets.enableBody = true;
+    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+    bullets.createMultiple(30, 'bullet');
+    bullets.setAll('anchor.x', 0.5);
+    bullets.setAll('anchor.y', 1);
+    bullets.setAll('outOfBoundsKill', true);
+    bullets.setAll('checkWorldBounds', true);
 	
 	enemy = game.add.sprite(500,400,'enemy');
 	enemy.anchor.setTo(0.5,0.5);
@@ -72,6 +81,7 @@ function create() {
 
     //  And some controls to play the game with
     cursors = game.input.keyboard.createCursorKeys();
+	fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     
 }
 
@@ -119,10 +129,14 @@ function update() {
         var x = player.x;
 		var y = player.y;
 		game.physics.arcade.accelerateToXY(enemy, x, y);
-		
+		if (fireButton.isDown)
+        {
+            fireBullet();
+        }
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
 		game.physics.arcade.overlap(player, enemy, PlayerHitEnemy, null, this);
+		game.physics.arcade.overlap(bullets, enemy, collisionHandler, null, this);
     }
 
 }
@@ -156,6 +170,43 @@ function PlayerHitStar (player, star) {
     {
         createStars();
     }
+
+}
+function fireBullet () {
+
+    //  To avoid them being allowed to fire too fast we set a time limit
+    if (game.time.now > bulletTime)
+    {
+        //  Grab the first bullet we can from the pool
+        bullet = bullets.getFirstExists(false);
+
+        if (bullet)
+        {
+            //  And fire it
+            bullet.reset(player.x, player.y + 8);
+            bullet.body.velocity.y = -400;
+            bulletTime = game.time.now + 200;
+        }
+    }
+
+}
+
+function collisionHandler (bullet, enemy) {
+
+    //  When a bullet hits an alien we kill them both
+    bullet.kill();
+    enemy.kill();
+
+    //  Increase the score
+    score += 20;
+    scoreText.text = scoreString + score;
+}
+
+
+function resetBullet (bullet) {
+
+    //  Called if the bullet goes out of the screen
+    bullet.kill();
 
 }
 
