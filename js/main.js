@@ -49,10 +49,10 @@ function create() {
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
 	
-	enemy = game.add.sprite(500,400,'enemy');
+	enemy = game.add.sprite(500,100,'enemy');
 	enemy.anchor.setTo(0.5,0.5);
 	game.physics.enable(enemy,Phaser.Physics.ARCADE);
-	enemy1 = game.add.sprite(100,400,'enemy');
+	enemy1 = game.add.sprite(100,100,'enemy');
 	enemy1.anchor.setTo(0.5,0.5);
 	game.physics.enable(enemy1,Phaser.Physics.ARCADE);
     //  The hero!
@@ -130,8 +130,8 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         var x = player.x;
 		var y = player.y;
-		game.physics.arcade.accelerateToXY(enemy, x, y,200);
-		game.physics.arcade.accelerateToXY(enemy1, x, y,200);
+		game.physics.arcade.accelerateToXY(enemy, x, y,50);
+		game.physics.arcade.accelerateToXY(enemy1, x, y,50);
 		if (fireButton.isDown)
         {
             fireBullet();
