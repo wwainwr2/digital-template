@@ -199,9 +199,7 @@ function collisionHandler (bullet, enemy) {
 	enemy = game.add.sprite(500,400,'enemy');
 	enemy.anchor.setTo(0.5,0.5);
 	game.physics.enable(enemy,Phaser.Physics.ARCADE);
-	enemy = game.add.sprite(500,400,'enemy');
-	enemy.anchor.setTo(0.5,0.5);
-	game.physics.enable(enemy,Phaser.Physics.ARCADE);
+	game.physics.arcade.accelerateToXY(enemy, x, y);
 
     //  Increase the score
     score += 20;
