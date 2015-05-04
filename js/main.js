@@ -130,8 +130,8 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         var x = player.x;
 		var y = player.y;
-		game.physics.arcade.accelerateToXY(enemy, x, y,300);
-		game.physics.arcade.accelerateToXY(enemy1, x, y,300);
+		game.physics.arcade.accelerateToXY(enemy, x, y,200);
+		game.physics.arcade.accelerateToXY(enemy1, x, y,200);
 		if (fireButton.isDown)
         {
             fireBullet();
