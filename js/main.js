@@ -15,7 +15,7 @@ function preload() {
 var player;
 var star;
 var stars;
-
+var enemy1;
 var cursors;
 var fireButton;
 var bullets;
@@ -52,7 +52,9 @@ function create() {
 	enemy = game.add.sprite(500,400,'enemy');
 	enemy.anchor.setTo(0.5,0.5);
 	game.physics.enable(enemy,Phaser.Physics.ARCADE);
-	
+	enemy1 = game.add.sprite(500,400,'enemy');
+	enemy1.anchor.setTo(0.5,0.5);
+	game.physics.enable(enemy1,Phaser.Physics.ARCADE);
     //  The hero!
     player = game.add.sprite(400, 500, 'player');
     player.anchor.setTo(0.5, 0.5);
@@ -128,7 +130,8 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         var x = player.x;
 		var y = player.y;
-		game.physics.arcade.accelerateToXY(enemy, x, y);
+		game.physics.arcade.accelerateToXY(enemy, x, y,500);
+		game.physics.arcade.accelerateToXY(enemy1, x, y,500);
 		if (fireButton.isDown)
         {
             fireBullet();
@@ -136,7 +139,9 @@ function update() {
 		
         game.physics.arcade.overlap(player, stars, PlayerHitStar, null, this);
 		game.physics.arcade.overlap(player, enemy, PlayerHitEnemy, null, this);
+		game.physics.arcade.overlap(player, enemy1, PlayerHitEnemy1, null, this);
 		game.physics.arcade.overlap(bullets, enemy, collisionHandler, null, this);
+		game.physics.arcade.overlap(bullets, enemy1, collisionHandler1, null, this);
     }
 
 }
@@ -154,7 +159,9 @@ function render() {
 function PlayerHitEnemy(player, enemy){
 	player.kill();
 }
-
+function PlayerHitEnemy1(player, enemy1){
+	player.kill();
+}
 
 function PlayerHitStar (player, star) {
 
@@ -172,6 +179,7 @@ function PlayerHitStar (player, star) {
     }
 
 }
+
 function fireBullet () {
 
     //  To avoid them being allowed to fire too fast we set a time limit
@@ -196,16 +204,23 @@ function collisionHandler (bullet, enemy) {
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     enemy.kill();
-	enemy = game.add.sprite(500,400,'enemy');
-	enemy.anchor.setTo(0.5,0.5);
-	game.physics.enable(enemy,Phaser.Physics.ARCADE);
-	game.physics.arcade.accelerateToXY(enemy, x, y);
+	
 
     //  Increase the score
     score += 20;
     scoreText.text = scoreString + score;
 }
+function collisionHandler1 (bullet, enemy1) {
 
+    //  When a bullet hits an alien we kill them both
+    bullet.kill();
+    enemy1.kill();
+	
+
+    //  Increase the score
+    score += 20;
+    scoreText.text = scoreString + score;
+}
 
 function resetBullet (bullet) {
 
