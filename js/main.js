@@ -196,6 +196,12 @@ function collisionHandler (bullet, enemy) {
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     enemy.kill();
+	enemy = game.add.sprite(500,400,'enemy');
+	enemy.anchor.setTo(0.5,0.5);
+	game.physics.enable(enemy,Phaser.Physics.ARCADE);
+	enemy = game.add.sprite(500,400,'enemy');
+	enemy.anchor.setTo(0.5,0.5);
+	game.physics.enable(enemy,Phaser.Physics.ARCADE);
 
     //  Increase the score
     score += 20;
