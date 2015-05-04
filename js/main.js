@@ -130,8 +130,8 @@ function update() {
 		//enemies.rotation = game.physics.arcade.accelerateToObject(enemies,player,100,100,100);
         var x = player.x;
 		var y = player.y;
-		game.physics.arcade.accelerateToXY(enemy, x, y,50);
-		game.physics.arcade.accelerateToXY(enemy1, x, y,50);
+		game.physics.arcade.accelerateToXY(enemy, x, y,75);
+		game.physics.arcade.accelerateToXY(enemy1, x, y,75);
 		if (fireButton.isDown)
         {
             fireBullet();
@@ -207,7 +207,7 @@ function collisionHandler (bullet, enemy) {
 	
 
     //  Increase the score
-    score += 20;
+    score -= 200;
     scoreText.text = scoreString + score;
 }
 function collisionHandler1 (bullet, enemy1) {
@@ -218,7 +218,7 @@ function collisionHandler1 (bullet, enemy1) {
 	
 
     //  Increase the score
-    score += 20;
+    score -= 200;
     scoreText.text = scoreString + score;
 }
 
